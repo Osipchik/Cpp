@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.593,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.285,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.308,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Circle.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.645,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.348,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.021,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.450,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Rotation.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.211,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Circle.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\DrawCircle.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.262,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Project1.cbproj=C:\Users\ASUS\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.626,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\ScaleS.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.397,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Move.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.919,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\DrawRectangle.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.047,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.210,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.031,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.470,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Motion.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.670,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.411,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.272,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Scale.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.162,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\DrawPolygon.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.854,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.115,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.678,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.919,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\DrawRectangle.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.841,=C:\Users\ASUS\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.018,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\GetParametr.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.499,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\ProcessGo.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.211,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Circle.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\DrawCircle.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.610,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\ProcessGo.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.308,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit1.dfm=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.397,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Move.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.018,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\GetParametr.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.109,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Move.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.308,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit1.h=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.272,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Scale.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.064,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\DrawTreangle.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.380,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Motion.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.450,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Rotation.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.652,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Motion.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.859,=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.470,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Motion.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.308,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Circle.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.308,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit1.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.064,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\DrawTreangle.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.162,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\DrawPolygon.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.626,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit3.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\ScaleS.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.499,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\ProcessGo.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2.s2\Unit2.h</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Project1.cpp"/>
+    <File Path="Project1.res"/>
+    <File Path="Unit1.cpp"/>
+    <File Path="Unit1.cpp"/>
+    <File Path="Unit1.dfm"/>
+    <File Path="Unit1.h"/>
+    <File Path="DrawRectangle.cpp"/>
+    <File Path="DrawRectangle.cpp"/>
+    <File Path="DrawRectangle.h"/>
+    <File Path="DrawTreangle.cpp"/>
+    <File Path="DrawTreangle.cpp"/>
+    <File Path="DrawTreangle.h"/>
+    <File Path="DrawPolygon.cpp"/>
+    <File Path="DrawPolygon.cpp"/>
+    <File Path="DrawPolygon.h"/>
+    <File Path="DrawCircle.cpp"/>
+    <File Path="DrawCircle.cpp"/>
+    <File Path="DrawCircle.h"/>
+    <File Path="GetParametr.cpp"/>
+    <File Path="GetParametr.cpp"/>
+    <File Path="GetParametr.h"/>
+    <File Path="Scale.cpp"/>
+    <File Path="Scale.cpp"/>
+    <File Path="Scale.h"/>
+    <File Path="Motion.cpp"/>
+    <File Path="Motion.cpp"/>
+    <File Path="Motion.h"/>
+    <File Path="Rotation.cpp"/>
+    <File Path="Rotation.cpp"/>
+    <File Path="Rotation.h"/>
+  </ProjectSortOrder>
+</BorlandProject>
