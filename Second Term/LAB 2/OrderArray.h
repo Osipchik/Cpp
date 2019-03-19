@@ -16,7 +16,7 @@ private:
 
 public:
      OrderArray();
-     void LoadFile(TOpenDialog *OpenDialog, TMemo *Memo, int LineNumber);
+     void LoadInfo(TMemo *Memo, int LineNumber);
      void AddComboItems (TComboBox *ComboBox);
      void ShowOrderFile(TMemo *Memo);
 };

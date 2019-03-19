@@ -15,31 +15,36 @@ OrderArray::OrderArray()
 void OrderArray::ShowOrderFile(TMemo *Memo)
 {
     TStringList *PriceList = OpenF("Price list");
-    TStringList *OrderList = OpenF(OrderNum);
-    OrderList->Delete(0);
 
-    String PriceStr = "", OrderStr = "", tempWord = "";
-
-    for (int i = 0; i < OrderList->Count; i++, OrderStr = "")
+    if (FileExists(OrderNum + ".txt"))
     {
-        for (int j = 1; OrderList->Strings[i][j] != ' '; j++)
-        {
-            OrderStr += OrderList->Strings[i][j];
-        }
+       TStringList *OrderList = OpenF(OrderNum);
+       OrderList->Delete(0);
 
-        for (int indexi = 0; indexi < PriceList->Count; indexi++, PriceStr = "")
-        {
-            if (PriceList->Strings[indexi].Pos(OrderStr))
-            {
-               for (int indexj = OrderStr.Length() + 1; indexj < PriceList->Strings[indexi].Length(); indexj++)
+       String PriceStr = "", OrderStr = "", tempWord = "";
+
+       for (int i = 0; i < OrderList->Count; i++, OrderStr = "")
+       {
+           for (int j = 1; OrderList->Strings[i][j] != ' '; j++)
+               OrderStr += OrderList->Strings[i][j];
+
+           for (int indexi = 0; indexi < PriceList->Count; indexi++, PriceStr = "")
+               if (PriceList->Strings[indexi].Pos(OrderStr))
                {
-                   PriceStr += PriceList->Strings[indexi][indexj];
+                   for (int indexj = OrderStr.Length() + 1; indexj < PriceList->Strings[indexi].Length(); indexj++)
+                       PriceStr += PriceList->Strings[indexi][indexj];
+                   Memo->Lines->Add(OrderList->Strings[i] + PriceStr);
                }
-               Memo->Lines->Add(OrderList->Strings[i] + PriceStr);
-            }
-        }
+       }
+
+       delete OrderList;
     }
-    delete OrderList;
+    else
+    {
+        wchar_t message[] = L"File does not exist";
+        wchar_t tytle[] = L"Error";
+        Application->MessageBoxW(message, tytle, MB_ICONWARNING) == IDYES;
+    }
     delete PriceList;
 }
 
@@ -50,7 +55,7 @@ void OrderArray::AddComboItems (TComboBox *ComboBox)
 }
 
 
-void OrderArray::LoadFile(TOpenDialog *OpenDialog, TMemo *Memo, int LineNumber)
+void OrderArray::LoadInfo(TMemo *Memo, int LineNumber)
 {
      TempStr = Memo->Lines->Strings[LineNumber];
      int index = 1;

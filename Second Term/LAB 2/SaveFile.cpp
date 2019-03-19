@@ -15,12 +15,12 @@ SaveFile::SaveFile()
 
 void SaveFile::Save(TMemo *Memo, TSaveDialog *SaveDialog)
 {
+     Memo->Lines->Insert(0, " Total price: " + String(Price(Memo)));
      SaveDialog->FileName = FName;
      if (SaveDialog->Execute())
      {
         Memo->Lines->SaveToFile(SaveDialog->FileName);
      }
-     Memo->Lines->Add(String('\n') + String(Price(Memo)));
 }
 
 String SaveFile::Price(TMemo *Memo)
