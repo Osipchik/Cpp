@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.134,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Vector.h=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit3.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.667,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Array.h=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.451,=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.133,=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.667,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Array.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.892,=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.101,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\OpenFile.h=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.579,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Project1.cbproj=C:\Users\ASUS\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.101,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\OpenFile.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.209,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Unit1.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.209,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Unit1.h=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.134,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Vector.cpp=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit3.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.486,=C:\Users\ASUS\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.209,C:\Users\ASUS\Documents\RAD Studio\Projects\LAB 2\Unit1.dfm=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.517,=C:\Users\ASUS\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Project1.cpp"/>
+    <File Path="Project1.res"/>
+    <File Path="Unit1.cpp"/>
+    <File Path="Unit1.cpp"/>
+    <File Path="Unit1.dfm"/>
+    <File Path="Unit1.h"/>
+    <File Path="Array.cpp"/>
+    <File Path="Array.cpp"/>
+    <File Path="Array.h"/>
+    <File Path="Vector.cpp"/>
+    <File Path="Vector.cpp"/>
+    <File Path="Vector.h"/>
+    <File Path="OpenFile.cpp"/>
+    <File Path="OpenFile.cpp"/>
+    <File Path="OpenFile.h"/>
+  </ProjectSortOrder>
+</BorlandProject>
