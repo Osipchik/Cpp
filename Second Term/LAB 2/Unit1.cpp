@@ -20,24 +20,26 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonLoadClick(TObject *Sender)
 {
-     if (OpenDialog1->Execute()) Memo1->Lines->LoadFromFile(OpenDialog1->FileName);
-     ComboBox1->Items->Clear();
-     Array arr;
-     int count = Memo1->Lines->Count;
-     for (int i = 0; i < count; i++)
+     if (OpenDialog1->Execute())
      {
-         arr.Add(Memo1->Lines->Strings[i], "Price list", 0, 1);
-         ComboBox1->Items->Add(arr.Show(i, 1));
-     }
+        Memo1->Lines->LoadFromFile(OpenDialog1->FileName);
+        ComboBox1->Items->Clear();
+        Array arr;
+        int count = Memo1->Lines->Count;
+        for (int i = 0; i < count; i++)
+        {
+            arr.Add(Memo1->Lines->Strings[i], "Price list", 0, 1);
+            ComboBox1->Items->Add(arr.Show(i, 1));
+        }
 
-     ButtonSave->Visible = true;
-     Label3->Visible = true; Label3->Caption = "Code:";
-     Label4->Visible = true; Label4->Caption = "Data:";
-     Label5->Visible = true; Label5->Caption = "Info:";
-     Edit1->Visible = true;
-     Edit2->Visible = true;
-     Edit3->Visible = true;
-     Button2->Visible = true;
+        Label3->Visible = true; Label3->Caption = "Code:";
+        Label4->Visible = true; Label4->Caption = "Data:";
+        Label5->Visible = true; Label5->Caption = "Info:";
+        Edit1->Visible = true;
+        Edit2->Visible = true;
+        Edit3->Visible = true;
+        Button2->Visible = true;
+     }
 
 }
 //---------------------------------------------------------------------------
@@ -60,6 +62,7 @@ void __fastcall TForm1::ComboBox1Change(TObject *Sender)
         Edit3->Visible = true;
         Edit4->Visible = true;
         Button2->Visible = true;
+        ButtonSave->Visible = true;
 
         Array arr;
         OpenFiles open;
@@ -93,10 +96,10 @@ void __fastcall TForm1::ButtonSaveClick(TObject *Sender)
      for (int i = 0; i < count; i++)
          arr.Add(Memo1->Lines->Strings[i], "", 3);
 
-     Memo1->Lines->Insert(0, " Total price: " + arr.Price());
-
+     Memo1->Lines->Insert(0, " Total price: " + IntToStr(arr.Price()));
      if (SaveDialog1->Execute())
         Memo1->Lines->SaveToFile(SaveDialog1->FileName);
+     Memo1->Lines->Delete(0);
 }
 //---------------------------------------------------------------------------
 
