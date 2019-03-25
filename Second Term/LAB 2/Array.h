@@ -19,8 +19,10 @@ public:
     Array();
     ~Array();
     void Add (String line, String FileName, int index = 0, int order = 0);
+    void remove(int index);
     String Show (int index, int order = 0);
     int Price ();
+    int GetSize(){return size;};
     void qSort (int first, int last, int d = 1);
     void reverce ();
 };

@@ -21,22 +21,27 @@ __published:	// IDE-managed Components
 	TLabel *Label1;
 	TComboBox *ComboBox2;
 	TLabel *Label2;
-	TButton *Button1;
+	TButton *ButtonClear;
 	TEdit *Edit1;
 	TEdit *Edit2;
 	TEdit *Edit3;
-	TButton *Button2;
+	TButton *ButtonAdd;
 	TEdit *Edit4;
 	TLabel *Label3;
 	TLabel *Label4;
 	TLabel *Label5;
 	TLabel *Label6;
+	TButton *Button3;
+	TEdit *Edit5;
+	TButton *Button1;
 	void __fastcall ButtonLoadClick(TObject *Sender);
 	void __fastcall ComboBox1Change(TObject *Sender);
 	void __fastcall ButtonSaveClick(TObject *Sender);
-	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall ButtonClearClick(TObject *Sender);
 	void __fastcall ComboBox2Change(TObject *Sender);
-	void __fastcall Button2Click(TObject *Sender);
+	void __fastcall ButtonAddClick(TObject *Sender);
+	void __fastcall Button3Click(TObject *Sender);
+	void __fastcall Button1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

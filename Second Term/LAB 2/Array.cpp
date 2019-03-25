@@ -34,6 +34,22 @@ void Array::Add(String line, String FileName, int index, int order)
 }
 
 
+void Array::remove(int index)
+{
+     size--;
+     vecTmp = new Vector [size];
+
+     for (int i = 0; i < index; i++)
+         vecTmp[i] = vector[i];
+     for (int i = index + 1; i < size+1; i++)
+         vecTmp[i-1] = vector[i];
+
+     delete[] this->vector;
+     this->vector = this->vecTmp;
+
+}
+  //*/
+
 String Array::Show (int index, int order)
 {
      return vector[index].Show(order);
@@ -41,11 +57,11 @@ String Array::Show (int index, int order)
 
 int Array::Price()
 {
-    size--;
-    while (size >= 0)
+    int count = size - 1;
+    while (count >= 0)
     {
-        price += vector[size].Price();
-        size--;
+        price += vector[count].Price();
+        count--;
     }
     return price;
 }

@@ -179,7 +179,7 @@ object Form1: TForm1
       'coast max'
       'coast min')
   end
-  object Button1: TButton
+  object ButtonClear: TButton
     Left = 503
     Top = 8
     Width = 75
@@ -192,7 +192,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 5
-    OnClick = Button1Click
+    OnClick = ButtonClearClick
   end
   object Edit1: TEdit
     Left = 583
@@ -236,7 +236,7 @@ object Form1: TForm1
     TabOrder = 8
     Visible = False
   end
-  object Button2: TButton
+  object ButtonAdd: TButton
     Left = 599
     Top = 8
     Width = 75
@@ -250,7 +250,7 @@ object Form1: TForm1
     ParentFont = False
     TabOrder = 9
     Visible = False
-    OnClick = Button2Click
+    OnClick = ButtonAddClick
   end
   object Edit4: TEdit
     Left = 583
@@ -266,14 +266,57 @@ object Form1: TForm1
     TabOrder = 10
     Visible = False
   end
+  object Button3: TButton
+    Left = 583
+    Top = 240
+    Width = 75
+    Height = 25
+    Caption = 'Delete'
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 11
+    OnClick = Button3Click
+  end
+  object Edit5: TEdit
+    Left = 658
+    Top = 240
+    Width = 31
+    Height = 22
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 12
+  end
+  object Button1: TButton
+    Left = 583
+    Top = 263
+    Width = 106
+    Height = 25
+    Caption = 'Last'
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 13
+    OnClick = Button1Click
+  end
   object OpenDialog1: TOpenDialog
     Left = 648
-    Top = 264
+    Top = 328
   end
   object SaveDialog1: TSaveDialog
     DefaultExt = '*.doc'
     Filter = 'Text File|*.txt|Document|*.doc'
     Left = 592
-    Top = 264
+    Top = 328
   end
 end
