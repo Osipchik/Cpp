@@ -20,12 +20,14 @@ __published:	// IDE-managed Components
 	TButton *ButtonFind;
 	TEdit *EditFind;
 	TButton *Button1;
+	TButton *Button2;
 	void __fastcall StringGrid1Click(TObject *Sender);
 	void __fastcall ButtonAddClick(TObject *Sender);
 	void __fastcall ButtonDeleteClick(TObject *Sender);
 	void __fastcall StringGrid1KeyPress(TObject *Sender, wchar_t &Key);
 	void __fastcall ButtonFindClick(TObject *Sender);
 	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall Button2Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

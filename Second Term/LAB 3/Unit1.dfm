@@ -15,13 +15,19 @@ object Form1: TForm1
   TextHeight = 13
   object StringGrid1: TStringGrid
     Left = 8
-    Top = 35
-    Width = 596
-    Height = 217
+    Top = 8
+    Width = 681
+    Height = 287
     ColCount = 8
-    DefaultColWidth = 80
+    DefaultColWidth = 85
     RowCount = 2
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goDrawFocusSelected, goRowSizing, goColSizing, goEditing]
+    ParentFont = False
     TabOrder = 0
     Touch.ParentTabletOptions = False
     Touch.TabletOptions = [toPressAndHold, toTouchUIForceOn]
@@ -29,63 +35,114 @@ object Form1: TForm1
     OnKeyPress = StringGrid1KeyPress
   end
   object ButtonAdd: TButton
-    Left = 368
-    Top = 334
+    Left = 8
+    Top = 301
     Width = 75
     Height = 25
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 1
     OnClick = ButtonAddClick
   end
   object ButtonDelete: TButton
-    Left = 496
-    Top = 336
-    Width = 75
+    Left = 208
+    Top = 301
+    Width = 65
     Height = 25
     Caption = #1059#1076#1072#1083#1080#1090#1100
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 2
     OnClick = ButtonDeleteClick
   end
   object Edit1: TEdit
-    Left = 600
-    Top = 338
-    Width = 121
-    Height = 21
+    Left = 274
+    Top = 301
+    Width = 32
+    Height = 24
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 3
   end
   object Memo1: TMemo
     Left = 24
-    Top = 304
+    Top = 368
     Width = 313
-    Height = 140
+    Height = 76
     Lines.Strings = (
       'Memo1')
     ScrollBars = ssVertical
     TabOrder = 4
   end
   object ButtonFind: TButton
-    Left = 24
-    Top = 8
-    Width = 75
+    Left = 88
+    Top = 301
+    Width = 57
     Height = 25
     Caption = #1053#1072#1081#1090#1080
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 5
     OnClick = ButtonFindClick
   end
   object EditFind: TEdit
-    Left = 105
-    Top = 8
-    Width = 81
-    Height = 21
+    Left = 146
+    Top = 301
+    Width = 56
+    Height = 25
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 6
   end
   object Button1: TButton
-    Left = 408
-    Top = 288
-    Width = 99
+    Left = 312
+    Top = 301
+    Width = 114
     Height = 25
     Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1089#1087#1080#1089#1086#1082
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 7
     OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 432
+    Top = 301
+    Width = 75
+    Height = 25
+    Caption = #1057#1056' '#1073#1072#1083#1083
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+    OnClick = Button2Click
   end
 end

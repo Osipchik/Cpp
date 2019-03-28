@@ -63,9 +63,21 @@
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<ItemGroup>
+			<CppCompile Include="MyException.cpp">
+				<DependentOn>MyException.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="myGrid.cpp">
+				<DependentOn>myGrid.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
 			<CppCompile Include="myList.cpp">
 				<DependentOn>myList.h</DependentOn>
 				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="myStruct.cpp">
+				<DependentOn>myStruct.h</DependentOn>
+				<BuildOrder>6</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="Project1.cpp">
 				<BuildOrder>0</BuildOrder>
