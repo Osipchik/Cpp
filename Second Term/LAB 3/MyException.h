@@ -7,7 +7,6 @@
 #include <exception>
 #include <vcl.h>
 #include "Unit1.h"
- //using namespace std;
 
 class MyException :public std::exception
 {
@@ -17,7 +16,11 @@ public:
          this->cols = col;
          this->rows = row;
       };
-      void FillCell(TStringGrid *SG){ SG->Cells[cols][rows] = "0000"; };
+      MyException()
+      {
+      };
+      void FillCell (TStringGrid *SG){ SG->Cells[cols][rows] = "0000"; };
+      void FillEdit (TEdit *Edit){ Edit->Text = "0"; };
 private:
       int cols;
       int rows;

@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 452
-  ClientWidth = 746
+  ClientHeight = 332
+  ClientWidth = 647
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,7 +16,7 @@ object Form1: TForm1
   object StringGrid1: TStringGrid
     Left = 8
     Top = 8
-    Width = 681
+    Width = 631
     Height = 287
     ColCount = 8
     DefaultColWidth = 85
@@ -62,13 +62,14 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 2
+    Visible = False
     OnClick = ButtonDeleteClick
   end
   object Edit1: TEdit
     Left = 274
     Top = 301
     Width = 32
-    Height = 24
+    Height = 26
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -76,16 +77,7 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 3
-  end
-  object Memo1: TMemo
-    Left = 24
-    Top = 368
-    Width = 313
-    Height = 76
-    Lines.Strings = (
-      'Memo1')
-    ScrollBars = ssVertical
-    TabOrder = 4
+    Visible = False
   end
   object ButtonFind: TButton
     Left = 88
@@ -99,23 +91,25 @@ object Form1: TForm1
     Font.Name = 'Trebuchet MS'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 4
+    Visible = False
     OnClick = ButtonFindClick
   end
   object EditFind: TEdit
     Left = 146
     Top = 301
     Width = 56
-    Height = 25
+    Height = 26
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'Trebuchet MS'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
+    Visible = False
   end
-  object Button1: TButton
+  object ButtonShow: TButton
     Left = 312
     Top = 301
     Width = 114
@@ -127,8 +121,9 @@ object Form1: TForm1
     Font.Name = 'Trebuchet MS'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 7
-    OnClick = Button1Click
+    TabOrder = 6
+    Visible = False
+    OnClick = ButtonShowClick
   end
   object Button2: TButton
     Left = 432
@@ -142,7 +137,24 @@ object Form1: TForm1
     Font.Name = 'Trebuchet MS'
     Font.Style = [fsBold]
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 7
+    Visible = False
     OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 513
+    Top = 301
+    Width = 126
+    Height = 25
+    Caption = #1059#1073#1088#1072#1090#1100' '#1083#1080#1096#1085#1080#1093
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Trebuchet MS'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+    Visible = False
+    OnClick = Button3Click
   end
 end

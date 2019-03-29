@@ -36,15 +36,20 @@ void __fastcall TForm1::StringGrid1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonAddClick(TObject *Sender)
 {
-     if (StringGrid1->Row < 10 && list.GetSize() == StringGrid1->RowCount - 1 || StringGrid1->RowCount == 1)
+     if (StringGrid1->RowCount < 11 && list.GetSize() == StringGrid1->RowCount - 1 || StringGrid1->RowCount == 1)
      {
          SG.AddRow(StringGrid1);
+     }
 
-         if (StringGrid1->RowCount > 1)
-         {
-            ButtonDelete->Visible = true;
-            Edit1->Visible = true;
-         }
+     if (list.GetSize() > 0)
+     {
+        ButtonDelete->Visible = true;
+        Edit1->Visible = true;
+        ButtonFind->Visible = true;
+        EditFind->Visible = true;
+        ButtonShow->Visible = true;
+        Button2->Visible = true;
+        Button3->Visible = true;
      }
 }
 //---------------------------------------------------------------------------
@@ -59,31 +64,54 @@ void __fastcall TForm1::ButtonDeleteClick(TObject *Sender)
            list.pop_back();
         }
      }
-     else if (Edit1->Text.ToInt() - 1 <= list.GetSize() && Edit1->Text != '0')
+     else 
      {
-        int index = Edit1->Text.ToInt() - 1;
-        StringGrid1->RowCount--;
-        list.remove(index);
-        while (index < list.GetSize())
+        String str = Edit1->Text;
+        try
         {
-            //SG.FillCells(StringGrid1, list, index);
+           for (int i = 1; i-1 < str.Length(); i++)
+               if (str[i] > '0' && str[i] > '9' || str[i] == ' ') throw MyException();
 
-            StringGrid1->Cells[1][index+1] = list[index].Surname;
-            StringGrid1->Cells[2][index+1] = list[index].Name;
-            StringGrid1->Cells[3][index+1] = list[index].Patronymic;
-            StringGrid1->Cells[4][index+1] = list[index].Math;
-            StringGrid1->Cells[5][index+1] = list[index].Physics;
-            StringGrid1->Cells[6][index+1] = list[index].Language;
-            StringGrid1->Cells[7][index+1] = list[index].GPA / 100.0;
-            index++;
-
+           int index = Edit1->Text.ToInt() - 1;
+           if (index >= 0)
+           {
+              StringGrid1->RowCount--;
+              list.remove(index);
+              while (index < list.GetSize())
+              {
+                  StringGrid1->Cells[1][index+1] = list[index].Surname;
+                  StringGrid1->Cells[2][index+1] = list[index].Name;
+                  StringGrid1->Cells[3][index+1] = list[index].Patronymic;
+                  StringGrid1->Cells[4][index+1] = list[index].Math;
+                  StringGrid1->Cells[5][index+1] = list[index].Physics;
+                  StringGrid1->Cells[6][index+1] = list[index].Language;
+                  StringGrid1->Cells[7][index+1] = list[index].GPA / 100.0;
+                  index++;
+              }
+           }
+        }
+        catch (MyException &ex)
+        {
+           ex.FillEdit(Edit1);
         }
      }
+
      if (StringGrid1->RowCount == 1)
      {
         ButtonDelete->Visible = false;
         Edit1->Visible = false;
         Edit1->Clear();
+     }
+
+     if (list.GetSize() == 0)
+     {
+        ButtonDelete->Visible = false;
+        Edit1->Visible = false;
+        ButtonFind->Visible = false;
+        EditFind->Visible = false;
+        ButtonShow->Visible = false;
+        Button2->Visible = false;
+        Button3->Visible = false;
      }
 }
 //---------------------------------------------------------------------------
@@ -92,25 +120,15 @@ void __fastcall TForm1::StringGrid1KeyPress(TObject *Sender, wchar_t &Key)
 {
      if (Key == 13)
      {
-     Memo1->Lines->Add(IntToStr(StringGrid1->Row) + '\t' + IntToStr(list.GetSize()));
        try
        {
           SG.FillList(StringGrid1, info);
-          //if (list.GetSize() == StringGrid1->Row - 1) list.remove(StringGrid1->Row - 1);
-          //list.insert(StringGrid1->Row - 1, info);
-            //list.push_back(info);
           if (list.GetSize() < StringGrid1->RowCount - 1) list.push_back(info);
           else
           {
-              //Memo1->Lines->Add(StringGrid1->Row);
               list.remove(StringGrid1->Row - 1);
               list.insert(StringGrid1->Row - 1, info);
           }
-          //if (list[StringGrid1->Row].Surname.IsEmpty()) list.push_back(info);
-          //else
-          //{
-          //  list[StringGrid1->Row - 1] = info;
-          //}
 
        }
        catch(MyException &ex)
@@ -118,18 +136,21 @@ void __fastcall TForm1::StringGrid1KeyPress(TObject *Sender, wchar_t &Key)
           ex.FillCell(StringGrid1);
        }
      }
+
      if (Key == ' ')
      {
-         if (StringGrid1->Col != StringGrid1->ColCount - 2 && StringGrid1->Col != 7)
-            StringGrid1->Col++;
-         else if (list.GetSize() == StringGrid1->RowCount - 1)
+         if (StringGrid1->Col != StringGrid1->ColCount - 2 && StringGrid1->Col != 7) StringGrid1->Col++;
+         else if (list.GetSize() == StringGrid1->RowCount - 1 && StringGrid1->RowCount < 11) SG.AddRow(StringGrid1);
+
+         if (list.GetSize() > 0)
          {
-            int row = StringGrid1->RowCount;
-            StringGrid1->RowCount = row + 1;
-            StringGrid1->Rows[row]->Clear();
-            StringGrid1->Cells[0][row] = row;
-            StringGrid1->Row++;
-            StringGrid1->Col = 1;
+            ButtonDelete->Visible = true;
+            Edit1->Visible = true;
+            ButtonFind->Visible = true;
+            EditFind->Visible = true;
+            ButtonShow->Visible = true;
+            Button2->Visible = true;
+            Button3->Visible = true;
          }
      }
 }
@@ -158,9 +179,8 @@ void __fastcall TForm1::ButtonFindClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::Button1Click(TObject *Sender)
+void __fastcall TForm1::ButtonShowClick(TObject *Sender)
 {
-Memo1->Lines->Add("row = " + IntToStr(StringGrid1->Row) +  "\t list = " + IntToStr(list.GetSize()));
      for (int index = 1; index-1 < list.GetSize() ; index++)
      {
          if (index < StringGrid1->RowCount)
@@ -175,11 +195,13 @@ Memo1->Lines->Add("row = " + IntToStr(StringGrid1->Row) +  "\t list = " + IntToS
          }
          else
          {
+            
             int row = StringGrid1->RowCount;
             StringGrid1->RowCount = row + 1;
             StringGrid1->Rows[row]->Clear();
             StringGrid1->Cells[0][row] = row;
-
+         
+            
             StringGrid1->Cells[1][index] = list[index-1].Surname;
             StringGrid1->Cells[2][index] = list[index-1].Name;
             StringGrid1->Cells[3][index] = list[index-1].Patronymic;
@@ -205,16 +227,16 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
      }
      mid /= count;
 
-     Memo1->Lines->Add(mid / 100);
      for (int i = 0; i < count; i++)
      {
-         if (list[i].GPA > mid)
+         if (list[i].GPA >= mid)
          {
+            
             row = StringGrid1->RowCount;
             StringGrid1->RowCount++;
             StringGrid1->Rows[row]->Clear();
             StringGrid1->Cells[0][row] = row;
-
+            
             StringGrid1->Cells[1][row] = list[i].Surname;
             StringGrid1->Cells[2][row] = list[i].Name;
             StringGrid1->Cells[3][row] = list[i].Patronymic;
@@ -225,6 +247,39 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
          }
      }
    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+     for (int i = 0; i < list.GetSize(); i++)
+         if (list[i].GPA == 0) list.remove(i); 
+
+     StringGrid1->RowCount = 1; 
+        
+     for (int index = 1; index-1 < list.GetSize(); index++)
+     {
+         SG.AddRow(StringGrid1);
+         
+         StringGrid1->Cells[1][index] = list[index-1].Surname;
+         StringGrid1->Cells[2][index] = list[index-1].Name;
+         StringGrid1->Cells[3][index] = list[index-1].Patronymic;
+         StringGrid1->Cells[4][index] = list[index-1].Math;
+         StringGrid1->Cells[5][index] = list[index-1].Physics;
+         StringGrid1->Cells[6][index] = list[index-1].Language;
+         StringGrid1->Cells[7][index] = list[index-1].GPA / 100.0;
+     }  
+
+     if (list.GetSize() == 0)
+     {
+        ButtonDelete->Visible = false;
+        Edit1->Visible = false;
+        ButtonFind->Visible = false;
+        EditFind->Visible = false;
+        ButtonShow->Visible = false;
+        Button2->Visible = false;
+        Button3->Visible = false;
+     }
 }
 //---------------------------------------------------------------------------
 

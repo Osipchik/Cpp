@@ -16,18 +16,19 @@ __published:	// IDE-managed Components
 	TButton *ButtonAdd;
 	TButton *ButtonDelete;
 	TEdit *Edit1;
-	TMemo *Memo1;
 	TButton *ButtonFind;
 	TEdit *EditFind;
-	TButton *Button1;
+	TButton *ButtonShow;
 	TButton *Button2;
+	TButton *Button3;
 	void __fastcall StringGrid1Click(TObject *Sender);
 	void __fastcall ButtonAddClick(TObject *Sender);
 	void __fastcall ButtonDeleteClick(TObject *Sender);
 	void __fastcall StringGrid1KeyPress(TObject *Sender, wchar_t &Key);
 	void __fastcall ButtonFindClick(TObject *Sender);
-	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall ButtonShowClick(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
+	void __fastcall Button3Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
