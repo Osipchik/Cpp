@@ -111,6 +111,11 @@ QString RPn::solve(QString expression)
         {
             b = nstack.GetTop();
             nstack.pop_Top();
+            if (b == 0.0)
+            {
+                QMessageBox::critical(nullptr, "Error", "деление на 0");
+                return "Error";
+            }
             a = nstack.GetTop();
             nstack.pop_Top();
             rez = a / b;

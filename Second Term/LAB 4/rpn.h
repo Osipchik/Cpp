@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <stack.h>
+#include <QMessageBox>
 
 class RPn
 {

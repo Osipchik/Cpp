@@ -51,22 +51,16 @@ void MainWindow::on_pushButton_clicked()
     QString expression = ui->lineEdit->text();
     Check chek;
 
-//    RPn rpn;
-//    QString convrez = rpn.ConvertToRPn(expression);
-//    ui->textEdit->append(convrez);
-
     if (chek.checkIt(expression) == 1)
     {
         RPn rpn;
         QString convrez = rpn.ConvertToRPn(expression);
-        if (convrez != "Error")
+
+        QString rez = rpn.solve(convrez);
+        if (rez != "Error")
         {
-            QString rez = rpn.solve(convrez);
-            if (rez != "Error")
-            {
-                ui->lineEdit_3->setText(rez);
-                ui->lineEdit_3->setVisible(true);
-            }
+            ui->lineEdit_3->setText(rez);
+            ui->lineEdit_3->setVisible(true);
         }
 
         if (ui->lineEdit_3->isVisible())
@@ -90,6 +84,7 @@ void MainWindow::on_pushButton_clicked()
                 }
             }
         }
+
     }
 }
 
