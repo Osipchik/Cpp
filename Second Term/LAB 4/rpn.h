@@ -13,7 +13,7 @@ private:
 public:
     RPn();
     QString ConvertToRPn(QString c);
-    QString solve();
+    QString solve(QString expression);
 };
 
 #endif // RPN_H

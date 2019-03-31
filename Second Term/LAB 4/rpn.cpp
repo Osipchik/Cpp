@@ -8,97 +8,84 @@ RPn::RPn()
 
 QString RPn::ConvertToRPn(QString c)
 {
-    QString RPn = "";
+    QString temp = "";
     QString rezult = "";
 
-    for (int i = 0; i < c.length(); i++)
-    {
-        if (c[i] >= '0' && c[i] <= '9')
+
+        for (int i = 0; i < c.length(); i++)
         {
-            while ((c[i] >= '0' && c[i] <= '9') || c[i] == '.')
+            if (c[i] >= '0' && c[i] <= '9')
             {
-                RPn += c[i];
-                i++;
+                while ((c[i] >= '0' && c[i] <= '9') || c[i] == '.')
+                {
+                    rezult += c[i];
+                    i++;
+                }
+                rezult +=  ',';
             }
-            queue.push_back(RPn);
-            rezult += RPn + ',';
-            RPn = "";
-        }
-        if (stack.GetSize() == 0) stack.push_Top(c[i]);
-        else if ((c[i] == '+' || c[i] == '-') && (stack.GetTop() == '/' || stack.GetTop() == '*'))
-        {
-            while (stack.GetSize())
+
+            if ((c[i] == '+' || c[i] == '-' || c[i] == '*' || c[i] == '/') && stack.GetSize() == 0) stack.push_Top(c[i]);
+            else if ((c[i] == '+' || c[i] == '-') && (stack.GetSize() != 0) && (stack.GetTop() == '+' || stack.GetTop() == '-'))
             {
-                RPn += stack.GetTop();
-                queue.push_back(RPn);
-                RPn = "";
+                rezult += stack.GetTop() + ',';
+                stack.pop_Top();
+                stack.push_Top(c[i]);
+            }
+            else if (c[i] == '(') stack.push_Top(c[i]);
+            else if ((c[i] == '*' || c[i] == '/') && stack.GetTop() == '(') stack.push_Top(c[i]);
+            else if (c[i] == ')')
+            {
+                while (stack.GetTop() != '(')
+                {
+                    rezult += stack.GetTop() + ',';
+                    stack.pop_Top();
+                }
                 stack.pop_Top();
             }
-            stack.push_Top(c[i]);
-        }
-        else if ((c[i] == '+' || c[i] == '-') && (stack.GetTop() == '+' || stack.GetTop() == '-'))
-        {
-            RPn += stack.GetTop();
-            queue.push_back(RPn);
-            rezult += RPn + ',';
-            RPn = "";
-            stack.pop_Top();
-            stack.push_Top(c[i]);
-        }
-        else if ((c[i] == '*' || c[i] == '/') && (stack.GetTop() == '+' || stack.GetTop() == '-'))
-        {
-            stack.push_Top(c[i]);
-        }
-        else if ((c[i] == '*' || c[i] == '/') && (stack.GetTop() == '*' || stack.GetTop() == '/'))
-        {
-            RPn += stack.GetTop();
-            queue.push_back(RPn);
-            rezult += RPn + ',';
-            RPn = "";
-            stack.pop_Top();
-            stack.push_Top(c[i]);
-        }
-        else if ((c[i] == '+' || c[i] == '-') && (stack.GetTop() == '*' || stack.GetTop() == '/'))
-        {
-            RPn += stack.GetTop();
-            queue.push_back(RPn);
-            rezult += RPn + ' ';
-            RPn = "";
-            stack.pop_Top();
-            stack.push_Top(c[i]);
-        }
-        else if ((c[i] == '*' || c[i] == '/' || c[i] == '+' || c[i] == '-') && stack.GetTop() == '(') stack.push_Top(c[i]);
-        else if (c[i] == '(') stack.push_Top(c[i]);
-        else if (c[i] == ')')
-        {
-            while (stack.GetTop() != '(')
+            else if ((c[i] == '*' || c[i] == '/') && (stack.GetTop() == '*' || stack.GetTop() == '/'))
             {
-                RPn += stack.GetTop();
-                queue.push_back(RPn);
-                rezult += RPn + ',';
-                RPn = "";
+                rezult += stack.GetTop() + ',';
                 stack.pop_Top();
+                stack.push_Top(c[i]);
             }
-            stack.pop_Top();
+            else if ((c[i] == '*' || c[i] == '/') && (stack.GetTop() == '+' || stack.GetTop() == '-')) stack.push_Top(c[i]);
+            else if ((c[i] == '+' || c[i] == '-') && (stack.GetTop() == '*' || stack.GetTop() == '/'))
+            {
+                while (stack.GetSize() && stack.GetTop() != '(')
+                {
+                    rezult += stack.GetTop() + ',';
+                    stack.pop_Top();
+                }
+                stack.push_Top(c[i]);
+            }
+            else if (stack.GetTop() == '(') stack.push_Top(c[i]);
         }
-    }
 
-    while (stack.GetSize())
+        while (stack.GetSize())
         {
-            RPn += stack.GetTop();
-            queue.push_back(RPn);
-            rezult += RPn + ',';
-            RPn = "";
+            rezult += stack.GetTop() + ',';
             stack.pop_Top();
         }
-    stack.clear();
+        stack.clear();
 
-    return rezult;
+        return rezult;
+
 }
 
 
-QString RPn::solve()
+QString RPn::solve(QString expression)
 {
+    QString str = "";
+    for (int i = 0; i < expression.length(); i++, str = "")
+    {
+        while (expression[i] != ',')
+        {
+            str += expression[i];
+            i++;
+        }
+        queue.push_back(str);
+    }
+
     double b, a, rez;
     QString sign = "";
     Stack<double> nstack;
@@ -106,7 +93,6 @@ QString RPn::solve()
     while (queue.GetSize())
     {
         sign = queue.GetHead();
-
 
         if (sign[0] >= '0' && sign[0] <= '9')
         {
@@ -150,6 +136,5 @@ QString RPn::solve()
         }
         queue.pop_Head();
     }
-
     return QString("%1").arg(nstack.GetTop());
 }
