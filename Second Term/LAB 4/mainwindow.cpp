@@ -49,6 +49,8 @@ void MainWindow::on_pushButton_clicked()
     ui->lineEdit_3->setVisible(false);
 
     QString expression = ui->lineEdit->text();
+    if (expression[0] == '-' || expression[0] == '+') expression.insert(0, '0');
+
     Check chek;
 
     if (chek.checkIt(expression) == 1)
@@ -85,7 +87,7 @@ void MainWindow::on_pushButton_clicked()
             }
         }
 
-    }
+   }
 }
 
 

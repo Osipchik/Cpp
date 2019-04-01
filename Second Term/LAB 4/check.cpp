@@ -21,7 +21,7 @@ bool Check::checkIt(QString expression)
         }
         else if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/')
         {
-            if (i == 0)
+            if (i == 0 && (expression[i] == '*' || expression[i] == '/'))
             {
                 QMessageBox::critical(nullptr, "Error", "неверное выражение");
                 return false;
@@ -76,4 +76,5 @@ bool Check::checkIt(QString expression)
     }
 
     return chek;
+    //return true;
 }
