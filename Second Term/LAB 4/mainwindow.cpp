@@ -14,25 +14,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_3->setVisible(false);
 }
 
-void Clean( QLayout &oL )
-{
-    QLayoutItem *poLI;
-    QLayout *poL;
-    QWidget *poW;
 
-    while( (poLI = oL.takeAt( 0 )) )
+void Clean(QLayout &All)
+{
+    QLayoutItem *pAllItem;
+    QLayout *pAllLay;
+    QWidget *pWidget;
+
+    while ( (pAllItem = All.takeAt( 0 )) )
     {
-        if( (poL = poLI->layout()) )
-        {
-          delete poL;
-        }
-        else
-        if( (poW = poLI->widget()) )
-        {
-          delete poW;
-        }
+        if ( (pAllLay = pAllItem->layout()) ) delete pAllLay;
+        else if ( (pWidget = pAllItem->widget()) ) delete pWidget;
     }
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -78,6 +73,7 @@ void MainWindow::on_pushButton_clicked()
                         i++;
                     }
                     if (str.isEmpty()) str = convrez[i];
+
                     DynamicEdit *LineEdit = new DynamicEdit(this);
                     LineEdit->setText(str);
                     ui->horizontalLayout_2->addWidget(LineEdit);

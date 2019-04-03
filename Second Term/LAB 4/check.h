@@ -7,7 +7,7 @@ class Check
 {
 public:
     Check();
-    bool checkIt(QString expression);
+    bool checkIt(QString &expression);
 };
 
 #endif // CHECK_H

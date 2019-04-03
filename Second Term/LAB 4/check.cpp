@@ -6,13 +6,19 @@ Check::Check()
 
 }
 
-bool Check::checkIt(QString expression)
+bool Check::checkIt(QString &expression)
 {
     int bracket = 0;
     bool chek = 0;
+    if (expression.length() == 1) return false;
     for (int i = 0; i < expression.length(); i++)
     {
-        if (expression[i] == '(') bracket++;
+        if (expression[i] == '(')
+        {
+            bracket++;
+            if (i < expression.length() && expression[i+1] == '-') expression.insert(i+1, '0');
+        }
+
         else if (expression[i] == ')') bracket--;
         else if (expression[i] == ' ')
         {

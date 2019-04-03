@@ -1,4 +1,4 @@
-#ifndef STACK_H
+ #ifndef STACK_H
 #define STACK_H
 
 template<typename T>
@@ -20,14 +20,16 @@ class Stack
 public:
     Stack();
     ~Stack();
+    // STACK
     void push_Top(T data);
     void clear();
     void pop_Top();
     T GetTop();
 
-    void push_back(T data);//
-    void pop_Head();       // только для очереди
-    T GetHead();           //
+    // turn
+    void push_back(T data);
+    void pop_Head();
+    T GetHead();
     int GetSize() { return size; }
 
 private:
