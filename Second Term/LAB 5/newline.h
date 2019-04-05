@@ -3,12 +3,13 @@
 #include <QString>
 #include "dl_list.h"
 
-class newline
+class NewLine
 {
+private:
+    //dlList<int> list;
+    QString line = "";
 public:
-    newline();
-
-    QString NewLine(dlList<int> &list, int index, int iterator);
+    QString getLine(dlList<int> &getlist, int index, int iterator);
 };
 
 #endif // NEWLINE_H

@@ -3,14 +3,15 @@
 #include <QString>
 #include <random>
 #include <ctime>
-#include "dl_list.h"
-//#include "newline.h"
+//#include "dl_list.h"
+#include "newline.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->generateButton, SIGNAL(clicked()), this, SLOT (generateButton_clicked()));
 }
 
 MainWindow::~MainWindow()
@@ -18,13 +19,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+
+void MainWindow::generateButton_clicked()
 {
-    ui->textEdit->clear();
-    ui->textEdit_2->clear();
-    ui->textEdit_3->clear();
+    ui->lineEdit->clear();
+    ui->lineEdit_2->clear();
     srand(static_cast<unsigned int>(time(nullptr)));
+
     dlList<int> list;
+    NewLine newline;
+
     QString line = "";
     int num, max = 0,min = 0, max_i = 0, min_i = 0;
     for(int i = 0; i < 30; i++)
@@ -46,20 +50,7 @@ void MainWindow::on_pushButton_clicked()
     ui->lineEdit->setText(line);
     ui->lineEdit_max->setText(QString::number(max));
     ui->lineEdit_min->setText(QString::number(min));
-
-    ui->textEdit->append("max: " + QString::number(max_i));
-    ui->textEdit->append("min: " + QString::number(min_i));
-
     int iterator = max_i > min_i ? (max_i - min_i) : (min_i - max_i);
     int index = min_i < max_i ? min_i+1 : max_i+1;
-    ui->textEdit_2->append("index " + QString::number(index));
-    ui->textEdit_2->append("iterator" + QString::number(iterator));
-    ui->textEdit_2->append("size " + QString::number(list.GetSize()));
-
-    for(int i = 0; i < iterator-1; i++)
-    {
-        list.remove(index);
-    }
-    for(int i = 0; i < list.GetSize(); i++)
-        ui->textEdit_3->append(QString::number(list.GetData(i)));
+    ui->lineEdit_2->setText(newline.getLine(list, index, iterator));
 }
