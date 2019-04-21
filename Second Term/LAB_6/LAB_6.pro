@@ -26,12 +26,15 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    windowwidget.cpp
 
 HEADERS += \
         mainwindow.h \
     queue.h \
-    avl-tree.h
+    avl-tree.h \
+    tree.h \
+    windowwidget.h
 
 FORMS += \
         mainwindow.ui

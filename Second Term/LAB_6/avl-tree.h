@@ -7,6 +7,7 @@
 template<typename T>
 class AVL_Tree
 {
+protected:
     template<typename T1>
     class Node
     {
@@ -29,7 +30,7 @@ class AVL_Tree
         }
     };
 
-private:
+protected:
     Node<T>* pRoot = nullptr;
 
     unsigned char height(Node<T>* pNode) { return pNode ? pNode->height : 0; }
@@ -66,6 +67,8 @@ public:
     void remove(int key) { pRoot = remove(pRoot, key); }
     int GetHeight() { return pRoot->height; }
     ~AVL_Tree();
+
+//    friend class Tree;
 };
 
 #endif // AVLTREE_H

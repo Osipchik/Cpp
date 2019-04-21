@@ -7,7 +7,8 @@
 #include <QTableWidget>
 #include <QTreeWidget>
 
-#include "avl-tree.h"
+//#include "avl-tree.h"
+#include "tree.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,7 +22,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    AVL_Tree<QString> tree;
+    //AVL_Tree<QString> tree;
+    Tree<QString> tree;
     Queue<QString> queue;
 
 private slots:
