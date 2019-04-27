@@ -65,17 +65,24 @@ void Parser<T>::remove_minus()
         {
             while(arr_item_size)
             {
-                copyArr.push_Top(Hash<T>::array[i].GetTop());
-
-                Hash<T>::array[i].pop_Top();
                 arr_item_size--;
+                if(Hash<T>::array[i].GetTop().key < 0)
+                {
+                    Hash<T>::array[i].pop_Top();
+                    continue;
+                }
+                copyArr.push_Top(Hash<T>::array[i].GetTop());
+                Hash<T>::array[i].pop_Top();
             }
             copy_size = copyArr.GetSize();
             while(copy_size)
             {
                 copy_size--;
-                if(copyArr.GetTop().key < 0) continue;
-
+                if(copyArr.GetTop().key < 0)
+                {
+                    //copyArr.pop_Top();
+                    continue;
+                }
                 Hash<T>::array[i].push_Top(copyArr.GetTop());
                 copyArr.pop_Top();
             }

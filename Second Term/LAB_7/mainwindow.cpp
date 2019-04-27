@@ -16,11 +16,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableWidget->horizontalHeader()->setVisible(false);
 
     ToolBar = new QToolBar("Toolbar");
+
     GenerateButton = new QToolButton(this);
     ClearButton = new QToolButton(this);
     DeleteMinus = new QToolButton(this);
+    DeleteButton = new QToolButton(this);
+    GetButton = new QToolButton(this);
+    AddButton = new QToolButton(this);
+
     lineEdit_Size = new QLineEdit(this);
     lineEdit_Items = new QLineEdit(this);
+    lineEdit_Item = new QLineEdit(this);
+
     label_Size = new QLabel("Size:");
     label_Items = new QLabel("   Items:");
 
@@ -34,9 +41,16 @@ MainWindow::MainWindow(QWidget *parent) :
     lineEdit_Items->setText("10");
     lineEdit_Items->setValidator(new QIntValidator);
 
+    lineEdit_Item->setFixedWidth(50);
+    lineEdit_Item->setMinimumWidth(20);
+    lineEdit_Item->setValidator(new QIntValidator);
+
     GenerateButton->setText("Generate");
     ClearButton->setText("Clear");
-    DeleteMinus->setText("Delete minus");
+    DeleteMinus->setText("Del minus");
+    DeleteButton->setText("Delete");
+    GetButton->setText("Get Hash");
+    AddButton->setText("Add item");
 
     ToolBar->addWidget(GenerateButton);
     ToolBar->addWidget(label_Size);
@@ -45,12 +59,25 @@ MainWindow::MainWindow(QWidget *parent) :
     ToolBar->addWidget(lineEdit_Items);
     ToolBar->addWidget(ClearButton);
     ToolBar->addWidget(DeleteMinus);
+    ToolBar->addWidget(DeleteButton);
+    ToolBar->addWidget(GetButton);
+    ToolBar->addWidget(AddButton);
+    ToolBar->addWidget(lineEdit_Item);
 
-    addToolBar(ToolBar);
+    addToolBar(Qt::LeftToolBarArea, ToolBar);
 
     connect(GenerateButton, SIGNAL(clicked()), this, SLOT (generateButton_clicked()));
     connect(ClearButton, SIGNAL(clicked()), this, SLOT (clearButton_clicked()));
     connect(DeleteMinus, SIGNAL(clicked()), this, SLOT (deleteMinus_clicked()));
+    connect(DeleteButton, SIGNAL(clicked()), this, SLOT (delete_clicked()));
+    connect(GetButton, SIGNAL(clicked()), this, SLOT (get_clicked()));
+    connect(AddButton, SIGNAL(clicked()), this, SLOT (add_clicked()));
+
+    QPalette palette = ui->tableWidget->palette();
+    palette.setBrush(QPalette::Highlight,QBrush(Qt::white));
+    palette.setBrush(QPalette::HighlightedText,QBrush(Qt::black));
+    ui->tableWidget->setPalette(palette);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 MainWindow::~MainWindow()
@@ -94,7 +121,7 @@ void MainWindow::generateButton_clicked()
     }
 
     ui->tableWidget->clear();
-    parser->cear();
+    parser->clear();
 
     int size = line_Size.toInt();
 
@@ -104,22 +131,29 @@ void MainWindow::generateButton_clicked()
         ui->tableWidget->setColumnWidth(i, 20);
     }
 
-    parser = new Parser<int>(size);
+    parser = new Parser<int>(1 + size);
 
     srand(static_cast<unsigned int>(time(nullptr)));
     int items = line_Items.toInt();
+    int rnd;
     while(items)
     {
-        parser->add(rand()%11 - rand()%11);
+        rnd = rand()%11 - rand()%11;
+        parser->add(rnd);
         items--;
     }
+
+//    for(int i = -5; i < 5; i++)
+//    {
+//        parser->add(i);
+//    }
     parser->fill_tab(ui);
 }
 
 void MainWindow::clearButton_clicked()
 {
     ui->tableWidget->clear();
-    if(!parser->isEmpty()) parser->cear();
+    if(!parser->isEmpty()) parser->clear();
 }
 
 void MainWindow::deleteMinus_clicked()
@@ -127,4 +161,35 @@ void MainWindow::deleteMinus_clicked()
     parser->remove_minus();
     ui->tableWidget->clear();
     parser->fill_tab(ui);
+}
+
+void MainWindow::delete_clicked()
+{
+    if(lineEdit_Item->text() != "")
+    {
+        parser->remove(lineEdit_Item->text().toInt());
+        ui->tableWidget->clear();
+        parser->fill_tab(ui);
+    }
+}
+
+
+void MainWindow::get_clicked()
+{
+    if(lineEdit_Item->text() != "")
+    {
+        QMessageBox::about(this, "Hash Code", "Hash code: " +
+                           QString::number(parser->GetHashCode(lineEdit_Item->text().toInt())));
+    }
+}
+
+
+void MainWindow::add_clicked()
+{
+    if(lineEdit_Item->text() != "")
+    {
+        parser->add(lineEdit_Item->text().toInt());
+        ui->tableWidget->clear();
+        parser->fill_tab(ui);
+    }
 }
