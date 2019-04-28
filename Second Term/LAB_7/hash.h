@@ -17,7 +17,7 @@ struct HashItem
 template<typename T>
 class Hash
 {
-public:
+protected:
     Stack<HashItem<T>> *array;
     int size;
     const long long int S = 2654435769;
@@ -30,6 +30,7 @@ public:
     void clear() { delete[] array; }
     int GetHashCode(int key);
     int GetSizeItem(int item) { return array[item].GetSize(); }
+    int GetSize() { return size; }
     T GetItem(int key);
 };
 
@@ -100,7 +101,7 @@ void Hash<T>::add(T key)
                 newItem.key = key;
                 newItem.hashCode = code;
                 array[i].push_Top(newItem);
-                break;
+                return;
             }
         }
         else
@@ -109,9 +110,30 @@ void Hash<T>::add(T key)
             newItem.key = key;
             newItem.hashCode = code;
             array[i].push_Top(newItem);
-            break;
+            //break;
+            return;
         }
     }
+
+    this->size *= 2;
+    Stack<HashItem<T>> *temp = new Stack<HashItem<T>>[size];
+    for(int i = 0; i < size/2; i++)
+    {
+        while(array[i].GetSize())
+        {
+            HashItem<T> newItem;
+            newItem.key = array[i].GetTop().key;
+            newItem.hashCode = GetHashCode(newItem.key);
+            temp[i].push_Top(newItem);
+            array[i].pop_Top();
+        }
+    }
+    HashItem<T> newItem;
+    newItem.key = key;
+    newItem.hashCode = code;
+    temp[size/2].push_Top(newItem);
+    delete[] array;
+    array = temp;
 }
 
 template<typename T>

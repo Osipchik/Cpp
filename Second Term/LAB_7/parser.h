@@ -29,6 +29,16 @@ void Parser<T>::fill_tab(Ui::MainWindow *ui)
 {
     Stack<typename::HashItem<T>> copyArr;
     int arr_item_size, copy_size;
+
+    if(ui->tableWidget->columnCount() < Hash<T>::size)
+    {
+        ui->tableWidget->setColumnCount(Hash<T>::size);
+        for(int i = 0; i < Hash<T>::size; i++)
+        {
+            ui->tableWidget->setColumnWidth(i, 20);
+        }
+    }
+
     for(int i = 0; i < Hash<T>::size; i++, arr_item_size = 0)
     {
         arr_item_size = Hash<T>::array[i].GetSize();

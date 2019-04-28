@@ -125,12 +125,6 @@ void MainWindow::generateButton_clicked()
 
     int size = line_Size.toInt();
 
-    ui->tableWidget->setColumnCount(size);
-    for(int i = 0; i < size; i++)
-    {
-        ui->tableWidget->setColumnWidth(i, 20);
-    }
-
     parser = new Parser<int>(1 + size);
 
     srand(static_cast<unsigned int>(time(nullptr)));
@@ -143,11 +137,9 @@ void MainWindow::generateButton_clicked()
         items--;
     }
 
-//    for(int i = -5; i < 5; i++)
-//    {
-//        parser->add(i);
-//    }
     parser->fill_tab(ui);
+    size = parser->GetSize();
+    ui->tableWidget->setColumnCount(size);
 }
 
 void MainWindow::clearButton_clicked()
