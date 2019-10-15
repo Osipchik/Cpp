@@ -61,6 +61,14 @@ void PrintMatrix(Matrix matrix, bool showValueInfo) {
 	cout << "\n";
 }
 
+void DeleteMatrix(Matrix& matrix)
+{
+	for (int i = 0; i < matrix.rows; i++) {
+		delete[] matrix.array[i];
+	}
+	delete[] matrix.array;
+}
+
 int main()
 {
 	Matrix matrixA = CreateMatrix(true);
@@ -70,4 +78,6 @@ int main()
 	SwapValue(matrixA, matrixB);
 	PrintMatrix(matrixA, false);
 	PrintMatrix(matrixB, false);
+	DeleteMatrix(matrixA);
+	DeleteMatrix(matrixB);
 }
