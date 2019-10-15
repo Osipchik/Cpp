@@ -2,43 +2,33 @@
 using namespace std;
 
 struct Matrix {
-	int xCount;
-	int yCount;
+	int columns;
+	int rows;
 	int** array;
-	char arrayName;
 	int value;
-	int positionX;
-	int positionY;
+	int valueColumn;
+	int valueRow;
 };
 
-void SetValue(Matrix& matrix, int currentY, int currentX, bool max) {
-	if (max ? matrix.value < matrix.array[currentY][currentX] : matrix.value > matrix.array[currentY][currentX]
+void SetValue(Matrix& matrix, int currentRow, int currentCol, bool max) {
+	cin >> matrix.array[currentRow][currentCol];
+	if (max ? matrix.value < matrix.array[currentRow][currentCol] : matrix.value > matrix.array[currentRow][currentCol]
 		|| matrix.value == -1) {
-		matrix.value = matrix.array[currentY][currentX];
-		matrix.positionY = currentY;
-		matrix.positionX = currentX;
+		matrix.value = matrix.array[currentRow][currentCol];
+		matrix.valueRow = currentRow;
+		matrix.valueColumn = currentCol;
 	}
 }
 
-void ReadRowAndCol(int& row, int& col, int rows, char arrayName) {
-	cout << "array" << arrayName << ":\n";
-	if (rows == 0) cin >> row;
-	else {
-		cout << rows << "\n";
-		row = rows;
-	}
-	cin >> col;
-}
-
-Matrix CreateMatrix(char arrayName, bool findMin, int rows = 0) {
+Matrix CreateMatrix(bool findMin, int rows = 0) {
 	int row, col;
-	ReadRowAndCol(row, col, rows, arrayName);
-	
-	Matrix matrix = { col, row, new int* [row], arrayName, -1 };
-	for (int i = 0; i < row; i++) {
-		matrix.array[i] = new int[col];
+	if (rows == 0) cin >> row;
+	else row = rows;
+	cin >> col;
+	Matrix matrix = { col, row, new int* [row], -1 };
+	for (int i = 0; i < matrix.rows; i++) {
+		matrix.array[i] = new int[matrix.columns];
 		for (int j = 0; j < col; j++) {
-			matrix.array[i][j] = rand();
 			SetValue(matrix, i, j, findMin);
 		}
 	}
@@ -47,18 +37,18 @@ Matrix CreateMatrix(char arrayName, bool findMin, int rows = 0) {
 }
 
 void SwapValue(Matrix& matrixA, Matrix& matrixB) {
-	for (int i = 0; i < matrixA.xCount; i++) {
-		int rowValue = matrixA.array[matrixA.positionY][i];
-		int colValue = matrixB.array[i][matrixB.positionX];
-		matrixA.array[matrixA.positionY][i] = colValue;
-		matrixB.array[i][matrixB.positionX] = rowValue;
+	for (int i = 0; i < matrixA.columns; i++) {
+		int rowValue = matrixA.array[matrixA.valueRow][i];
+		int colValue = matrixB.array[i][matrixB.valueColumn];
+		matrixA.array[matrixA.valueRow][i] = colValue;
+		matrixB.array[i][matrixB.valueColumn] = rowValue;
 	}
 }
 
 void PrintMatrix(Matrix matrix, bool showValueInfo) {
-	cout << "\nArray " << matrix.arrayName << ":\n";
-	for (int i = 0; i < matrix.yCount; i++) {
-		for (int j = 0; j < matrix.xCount; j++) {
+	cout << "\n";
+	for (int i = 0; i < matrix.rows; i++) {
+		for (int j = 0; j < matrix.columns; j++) {
 			cout << matrix.array[i][j] << "  ";
 		}
 		cout << "\n";
@@ -66,15 +56,16 @@ void PrintMatrix(Matrix matrix, bool showValueInfo) {
 
 	if (showValueInfo) {
 		cout << "value = " << matrix.value << ", positionX = "
-			 << matrix.positionX << ", positionY = " << matrix.positionY << "\n";
+			 << matrix.valueColumn << ", positionY = " << matrix.valueRow << "\n";
 	}
+	cout << "\n";
 }
 
 int main()
 {
-	Matrix matrixA = CreateMatrix('A', true);
+	Matrix matrixA = CreateMatrix(true);
 	PrintMatrix(matrixA, true);
-	Matrix matrixB = CreateMatrix('B', false, matrixA.xCount);
+	Matrix matrixB = CreateMatrix(false, matrixA.columns);
 	PrintMatrix(matrixB, true);
 	SwapValue(matrixA, matrixB);
 	PrintMatrix(matrixA, false);
