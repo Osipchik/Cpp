@@ -7,13 +7,13 @@ int main()
 	const int compareValue = 15, arrayLength = 100, maxCount = 10, minCount = 0;
 	const char messageEmpty[] = "Таких значений нет", messageAll[] = "Таких значений больше нет";
 
-	int array[arrayLength], count = 0;
+	int array[arrayLength], count = i = 0;
 
-	for (int i = 0; i < arrayLength; i++) {
+	for (; i < arrayLength; i++) {
 		cin >> array[i];
 	}
 
-	for (int i = 0; i < arrayLength && count < maxCount; i++){
+	for (i = 0; i < arrayLength && count < maxCount; i++){
 		if (array[i] > compareValue) {
 			cout << array[i] << "\t" << i << "\n";
 			count++;
