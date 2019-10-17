@@ -3,17 +3,11 @@ using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
-	const int compareValue = 15;
-	const int arrayLength = 100;
-	const int maxCount = 10;
-	const char zeroTextOutput[] = "Таких значений нет";
-	const char notFullTextOutput[] = "Таких значений больше нет";
-	const char valueTextOutput[] = "значение: ";
-	const char valuePositionTextOutput[] = "\tпозиция: ";
+		setlocale(LC_ALL, "Russian");
+	const int compareValue = 15, arrayLength = 100, 
+		maxCount = 10, minCount = 0;
 
-	int array[arrayLength];
-	int count = 0;
+	int array[arrayLength], count = 0;
 
 	for (int i = 0; i < arrayLength; i++) {
 		cin >> array[i];
@@ -21,15 +15,16 @@ int main()
 
 	for (int i = 0; i < arrayLength && count < maxCount; i++){
 		if (array[i] > compareValue) {
-			cout << valueTextOutput << array[i] << valuePositionTextOutput << i << "\n";
+			cout << "значение: " << array[i] << 
+				"\tпозиция: " << i << "\n";
 			count++;
 		}
 	}
 
-	if (count == 0) {
-		cout << zeroTextOutput;
+	if (count == minCount) {
+		cout << "Таких значений нет";
 	}
 	else if (count < maxCount) {
-		cout << notFullTextOutput;
+		cout << "Таких значений больше нет";
 	}
 }
